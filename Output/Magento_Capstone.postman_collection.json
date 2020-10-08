@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "64361b41-1f55-4ec3-9ae1-8b6d366ba11e",
+		"name": "Magento_Capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getOrderDetail",
+			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": [
+						{
+							"key": "tokenSecret",
+							"value": "wv3b07zxe2m0douil7mn2s7j2d9aghe2",
+							"type": "string"
+						},
+						{
+							"key": "token",
+							"value": "ilt82ykvwhxw5b0z3lqvmfjzzlx6es45",
+							"type": "string"
+						},
+						{
+							"key": "consumerSecret",
+							"value": "qk0hmm07j7w89u3gjexadmd2jyeaqfmp",
+							"type": "string"
+						},
+						{
+							"key": "consumerKey",
+							"value": "0ickfx5p24sda27204y88hrple6s15su",
+							"type": "string"
+						},
+						{
+							"key": "addParamsToHeader",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "signatureMethod",
+							"value": "HMAC-SHA1",
+							"type": "string"
+						},
+						{
+							"key": "version",
+							"value": "1.0",
+							"type": "string"
+						},
+						{
+							"key": "addEmptyParamsToSign",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/orders/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6fjy6pxtnk2vn93uqisimkh3mn1k0fvn",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"paymentMethod\": {\n                \"method\": \"paymentmethod\"\n    },\n    \"billing_address\": {\n                \"email\": \"kalyanipm25@gmail.com\",\n                \"region\": \"Maharashtra\",\n                \"region_id\": 553,\n                \"region_code\": \"MH\",\n                \"country_id\": \"IN\",\n                \"street\": [\"Valwade\"],\n                \"postcode\": \"423206\",\n                \"city\": \"Malegaon\",\n                \"telephone\": \"7447652891\",\n                \"firstname\": \"mrunali\",\n                \"lastname\": \"pagare\"\n                \n         }\n    \n}\n         \n    \n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/carts/mine/payment-information",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"carts",
+						"mine",
+						"payment-information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\" : \"Kalyani\",\n\t\"password\" : \"Afour@281295\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/V1/integration/admin/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"V1",
+						"integration",
+						"admin",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTokenForCustomer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"kalyanipm25@gmail.com\",\n  \"password\": \"Kalyani@2812\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/integration/customer/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"integration",
+						"customer",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createShippingAddress",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "85o0re41fex3gpohsgn4s8hnjaoca5xk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"addressInformation\": {\n    \"shipping_address\": {\n      \"region\": \"Maharashtra\",\n      \"region_id\": 553,\n      \"region_code\": \"MH\",\n      \"country_id\": \"IN\",\n      \"street\": [\n        \"Valwade\"\n      ],\n      \"postcode\": \"423206\",\n      \"city\": \"Malegaon\",\n      \"firstname\": \"mrunali\",\n      \"lastname\": \"pagare\",\n      \"email\": \"kalyanipm25@gmail.com\",\n      \"telephone\": \"7447652891\"\n    },\n    \"billing_address\": {\n      \"region\": \"Maharashtra\",\n      \"region_id\": 553,\n      \"region_code\": \"MH\",\n      \"country_id\": \"IN\",\n      \"street\": [\n        \"Valwade\"\n      ],\n      \"postcode\": \"423206\",\n      \"city\": \"Malegaon\",\n      \"firstname\": \"mrunali\",\n      \"lastname\": \"pagare\",\n      \"email\": \"kalyanipm25@gmail.com\",\n      \"telephone\": \"7447652891\"\n    },\n     \"shipping_carrier_code\": \"\",\n    \"shipping_method_code\": \"simpleshipping_simpleshipping\"\n   \n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/V1/carts/mine/shipping-information",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"V1",
+						"carts",
+						"mine",
+						"shipping-information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createInvoice",
+			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": [
+						{
+							"key": "tokenSecret",
+							"value": "wv3b07zxe2m0douil7mn2s7j2d9aghe2",
+							"type": "string"
+						},
+						{
+							"key": "token",
+							"value": "ilt82ykvwhxw5b0z3lqvmfjzzlx6es45",
+							"type": "string"
+						},
+						{
+							"key": "consumerSecret",
+							"value": "qk0hmm07j7w89u3gjexadmd2jyeaqfmp",
+							"type": "string"
+						},
+						{
+							"key": "consumerKey",
+							"value": "0ickfx5p24sda27204y88hrple6s15su",
+							"type": "string"
+						},
+						{
+							"key": "addParamsToHeader",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "signatureMethod",
+							"value": "HMAC-SHA1",
+							"type": "string"
+						},
+						{
+							"key": "version",
+							"value": "1.0",
+							"type": "string"
+						},
+						{
+							"key": "addEmptyParamsToSign",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"capture\": true,\n  \"notify\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/order/7/invoice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"order",
+						"7",
+						"invoice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createShipment",
+			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": [
+						{
+							"key": "tokenSecret",
+							"value": "wv3b07zxe2m0douil7mn2s7j2d9aghe2",
+							"type": "string"
+						},
+						{
+							"key": "token",
+							"value": "ilt82ykvwhxw5b0z3lqvmfjzzlx6es45",
+							"type": "string"
+						},
+						{
+							"key": "consumerSecret",
+							"value": "qk0hmm07j7w89u3gjexadmd2jyeaqfmp",
+							"type": "string"
+						},
+						{
+							"key": "consumerKey",
+							"value": "0ickfx5p24sda27204y88hrple6s15su",
+							"type": "string"
+						},
+						{
+							"key": "addParamsToHeader",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "signatureMethod",
+							"value": "HMAC-SHA1",
+							"type": "string"
+						},
+						{
+							"key": "version",
+							"value": "1.0",
+							"type": "string"
+						},
+						{
+							"key": "addEmptyParamsToSign",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"items\": [\n    {\n      \"order_item_id\": 7,\n      \"qty\": 1\n    }\n    \n  ],\n  \"tracks\": [\n    {\n      \"track_number\": \"1Y-9876543210\",\n      \"title\": \"United Parcel Service\",\n      \"carrier_code\": \"ups\"\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/order/7/ship",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"order",
+						"7",
+						"ship"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkInvoice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "estimateShippingMethods",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
